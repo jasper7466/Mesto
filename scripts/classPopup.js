@@ -67,7 +67,7 @@ export class DataInputPopup extends Popup      // Класс окон для в�
 
         const close = document.createElement('img');
         close.classList.add('popup__close');
-        close.src = './images/close.svg';
+        close.src = '../images/close.svg';
         close.addEventListener('click', event => this.hide(event));
         content.appendChild(close);
 
@@ -312,7 +312,7 @@ export class ImagePopup extends Popup      // Класс окон для ото�
 
         const close = document.createElement('img');
         close.classList.add('popup__close');
-        close.src = './images/close.svg';
+        close.src = '../images/close.svg';
         close.addEventListener('click', event => this.hide(event));
         content.appendChild(close);
 
