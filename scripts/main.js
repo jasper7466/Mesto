@@ -1,16 +1,20 @@
 'use strict';
 
+import "../pages/index.css";
+
+const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';   // Токен
+let me = undefined;                                     // Идентификатор пользователя
+const cohortId = 'cohort4';                             // Идентификатор потока
+const IP = serverUrl;                              // IP сервера
+
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/' + cohortId : 'https://praktikum.tk/' + cohortId;
+
 const cardHolder = document.querySelector('.places-list');                  // Родительский узел-хранитель для создаваемых объектов
 const dialogHolder = document.querySelector('.root');                       // Родительский узел-хранитель создаваемых диалогов
 
 const buttonAddPlace = document.querySelector('.user-info__button');        // Кнопка "Добавить место"
 const buttonEditProfile = document.querySelector('.user-info__edit');       // Кнопка "Редактировать профиль"
 const avatar = document.querySelector('.user-info__photo');                 // Фото профиля
-
-const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';   // Токен
-let me = undefined;                                     // Идентификатор пользователя
-const cohortId = 'cohort4';                             // Идентификатор потока
-const IP = '95.216.175.5';                              // IP сервера
 
 // Создаём экземпляр класса ApiMesto, в конструктор передаём
 // 1. IP сервера
