@@ -1,0 +1,19 @@
+.user-info__edit {
+  margin-top: 15px;
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  outline-color: white;
+}
+
+.user-info__edit:hover {
+  background-color: white;
+  color: black;
+  
+}
+
+.user-info__edit:hover:active {
+  background-color: lightskyblue;
+  outline-color: lightsalmon;
+  color: black;
+}

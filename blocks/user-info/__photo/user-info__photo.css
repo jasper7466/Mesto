@@ -1,0 +1,21 @@
+.user-info__photo {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  /*background-image: url(../../../images/avatar.jpg);*/
+}
+
+.user-info__photo:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 980px) {
+  .user-info__photo {
+    margin-top: 40px;
+  }
+}
