@@ -43,7 +43,7 @@
 
 `npm install gh-pages --save-dev` - **выкладывает проект на gh-pages**
 
-
+`npm install html-webpack-plugin`
 
 
 
