@@ -43,7 +43,7 @@
 
 `npm install gh-pages --save-dev` - **выкладывает проект на gh-pages**
 
-`npm install html-webpack-plugin --save-dev` - **без него не работало, подсмотрел на stackoverflow**
+`npm install html-webpack-plugin --save-dev` - **плагин, чтобы научить вебпак работать с HTML**
 
 `npm install --save-dev cross-env` - **пакет для использования глобальных переменных**
 
