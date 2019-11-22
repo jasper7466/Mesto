@@ -1,0 +1,41 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Project Mesto",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch",
+	"deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasper7466/Mesto.git"
+  },
+  "author": "Tim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasper7466/Mesto/issues"
+  },
+  "homepage": "https://github.com/jasper7466/Mesto#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "autoprefixer": "^9.7.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "gh-pages": "~2.0.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.4.1"
+  }
+}
