@@ -1,21 +1,21 @@
 'use strict';
 
-class ApiMesto
+export class ApiMesto
 {
     //IP = undefined;             // IP-адрес сервера
     //cohortId = undefined;       // Идентификатор потока
-    auth = undefined;           // Токен
-    userInfoURL = undefined;        // URL для запросов данных пользователя
-    itemCollectionURL = undefined;  // URL для запросов набора карточек
+    //auth = undefined;           // Токен
+    //userInfoURL = undefined;        // URL для запросов данных пользователя
+    //itemCollectionURL = undefined;  // URL для запросов набора карточек
     //baseSettings = undefined;       // Объект с настойками запроса
 
-    constructor(ip, cohort, auth)
+    constructor(protocol, ip, cohort, auth)
     {
         //this.IP = ip;
         //this.cohortId = cohort;
         this.auth = auth;
-        this.userInfoURL = `http://${ip}/${cohort}/users/me`;
-        this.itemCollectionURL = `http://${ip}/${cohort}/cards`;
+        this.userInfoURL = `${protocol}://${ip}/${cohort}/users/me`;
+        this.itemCollectionURL = `${protocol}://${ip}/${cohort}/cards`;
     }
 
     // Внутренний метод для отправки запросов

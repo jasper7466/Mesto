@@ -2,12 +2,21 @@
 
 import "../pages/index.css";
 
-const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';   // Токен
-let me = undefined;                                     // Идентификатор пользователя
-const cohortId = 'cohort4';                             // Идентификатор потока
-const IP = serverUrl;                              // IP сервера
+import {ApiMesto} from './classApiMesto.js';
+import {AnyContentHolder} from './classAnyContentHolder.js';
+import {DataInputPopup, ImagePopup } from './classPopup.js';
+import {addPlaceFieldSet, editProfileFieldSet} from './resources.js';
+import {Card} from './classCard.js';
 
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/' + cohortId : 'https://praktikum.tk/' + cohortId;
+//import "./classCard.js";
+
+const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';           // Токен
+let me = undefined;                                             // Идентификатор пользователя
+const cohortId = 'cohort4';                                     // Идентификатор потока
+const IP = 'praktikum.tk';                                      // IP сервера
+const protocol = NODE_ENV === 'development' ? 'http': 'https';  // IP сервера
+
+
 
 const cardHolder = document.querySelector('.places-list');                  // Родительский узел-хранитель для создаваемых объектов
 const dialogHolder = document.querySelector('.root');                       // Родительский узел-хранитель создаваемых диалогов
@@ -20,7 +29,7 @@ const avatar = document.querySelector('.user-info__photo');                 // �
 // 1. IP сервера
 // 2. Идентификатор потока
 // 3. Токен
-const api = new ApiMesto(IP, cohortId, token);
+const api = new ApiMesto(protocol, IP, cohortId, token);
 
 // Создаём контейнер, ему в конструктор передаём:
 // 1. Тип хранимых элементов (ссылка на конструктор класса элемента)

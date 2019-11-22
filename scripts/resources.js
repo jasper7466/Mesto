@@ -43,7 +43,7 @@ const initialCards = [  // Базовый набор карточек
      }
   ];
 
-const addPlaceFieldSet = [
+export const addPlaceFieldSet = [
     {
         placeholder: 'Название',
         source: undefined,
@@ -68,7 +68,7 @@ const addPlaceFieldSet = [
     }
 ];
 
-const editProfileFieldSet = [
+export const editProfileFieldSet = [
   {
       placeholder: '',
       source: document.querySelector('.user-info__name'),

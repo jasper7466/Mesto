@@ -57,3 +57,5 @@
 `npm i style-loader --save-dev` - **нужен для подтягивания в финальную сборку стилей, добавленных через @import**
 `npm i optimize-css-assets-webpack-plugin --save-dev` - **нужен для дополнительной оптимизации CSS**
 
+`npm install --save-dev @babel/plugin-proposal-class-properties` - **преобразует свойства классов**
+

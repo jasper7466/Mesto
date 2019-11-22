@@ -2,12 +2,13 @@
 
 class Popup // Базовый класс всплывающих окон
 {
-    entity = undefined;     // Родительский узел структуры диалога
-    fieldCollection = [];   // Массив объектов, описывающих поля ввода
-    close = undefined;      // Кнопка закрытия
-    form = undefined;       // Форма
-
-    constructor() {}
+    constructor()
+    {
+        this.entity = undefined;     // Родительский узел структуры диалога
+        this.fieldCollection = [];   // Массив объектов, описывающих поля ввода
+        this.close = undefined;      // Кнопка закрытия
+        this.form = undefined;       // Форма
+    }
 
     // Метод "показать форму"
     show()
@@ -34,16 +35,16 @@ class Popup // Базовый класс всплывающих окон
     }
 }
 
-class DataInputPopup extends Popup      // Класс окон для ввода данных
+export class DataInputPopup extends Popup      // Класс окон для ввода данных
 {
-    entity = undefined;         // Родительский узел структуры окна
-    //close = undefined;        // Кнопка закрытия
-    title = undefined;          // Название диалога
-    form = undefined;           // Форма
-    button = undefined;         // Кнопка "submit"
-    submitCaption = undefined;  // Надпись для кнопки "submit"
-    dataHandler = undefined;    // Ссылка на функцию обработчика события "submit"
-    fieldCollection = [];       // Массив объектов, описывающих поля ввода
+    //entity = undefined;         // Родительский узел структуры окна
+    //close = undefined;          // Кнопка закрытия
+    //title = undefined;          // Название диалога
+    //form = undefined;           // Форма
+    //button = undefined;         // Кнопка "submit"
+    //submitCaption = undefined;  // Надпись для кнопки "submit"
+    //dataHandler = undefined;    // Ссылка на функцию обработчика события "submit"
+    //fieldCollection = [];       // Массив объектов, описывающих поля ввода
 
     constructor(title, fieldSet, location, submitCaption, dataHandler)
     {
@@ -290,10 +291,10 @@ class DataInputPopup extends Popup      // Класс окон для ввода
     }
 }
 
-class ImagePopup extends Popup      // Класс окон для отображения картинок
+export class ImagePopup extends Popup      // Класс окон для отображения картинок
 {
-    entity = undefined;     // Родительский узел структуры диалога
-    image = undefined;      // Картинка
+    //entity = undefined;     // Родительский узел структуры диалога
+    //image = undefined;      // Картинка
     
     constructor(location)
     {
