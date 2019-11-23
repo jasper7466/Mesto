@@ -65,9 +65,9 @@ export class DataInputPopup extends Popup      // Класс окон для в�
         content.classList.add('popup__content');
         this.entity.appendChild(content);
 
-        const close = document.createElement('img');
+        const close = document.createElement('button');
         close.classList.add('popup__close');
-        close.src = '../images/close.svg';
+        //close.src = "<%=require('../images/close.svg')%>";  <- так не работает, пришлось переделать через стили (в bacground-image, по аналогии кнпки delete у карточек
         close.addEventListener('click', event => this.hide(event));
         content.appendChild(close);
 
@@ -310,9 +310,9 @@ export class ImagePopup extends Popup      // Класс окон для ото�
         content.classList.add('popup__content_image');
         this.entity.appendChild(content);
 
-        const close = document.createElement('img');
+        const close = document.createElement('button');
         close.classList.add('popup__close');
-        close.src = '../images/close.svg';
+        //close.src = "<%=require('../images/close.svg')%>";
         close.addEventListener('click', event => this.hide(event));
         content.appendChild(close);
 
