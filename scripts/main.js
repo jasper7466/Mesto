@@ -120,27 +120,27 @@ cardsContainer.container.addEventListener('click', event => {
 const userInfo = api.getUserInfo();
 
 // Обрабатываем данные
-userInfo.then((data) => {
-    // Директивно заполняем форму и имитируем её "submit", для этого в класс DataInputPopup добавлен метод directUpdate()
-    editProfileDialog.directUpdate(data.name, data.about);
-    // Фото профиля устанавливаем вручную
-    //console.log(data.avatar);
-    //console.log(avatar.stylebackgroundImage);
-    avatar.style.backgroundImage = `url(${data.avatar})`;
-    me = data._id;
-})
-/* Надо исправить: здесь тоже должна быть обработка ошибок, блок .catch
-который есть в классе Api выводит сообщение ошибки в консоль и возвращает
-снова ошибку которая распространяется дальше. Поэтому в конце цепочки тоже должен быть обработчик catch
-*/
+userInfo
+    .then((data) => {
+        // Директивно заполняем форму и имитируем её "submit", для этого в класс DataInputPopup добавлен метод directUpdate()
+        editProfileDialog.directUpdate(data.name, data.about);
+        // Фото профиля устанавливаем вручную
+        //console.log(data.avatar);
+        //console.log(avatar.stylebackgroundImage);
+        avatar.style.backgroundImage = `url(${data.avatar})`;
+        me = data._id;
+    })
+    .catch((err) => {
+        console.log('Error!');
+    })
 
 // Загрузка карточек с сервера
 // Инициируем запрос карточек, получаем промис
 const cards = api.getItems();
-/* Надо исправить: здесь тоже должна быть обработка ошибок, блок .catch
-который есть в классе Api выводит сообщение ошибки в консоль и возвращает
-снова ошибку которая распространяется дальше. Поэтому в конце цепочки тоже должен быть обработчик catch
-*/
+
+cards.catch((err) => {
+    console.log('Card download error.');
+})
 
 cards.then((cardSet) => {
     // Добавляем карточки
