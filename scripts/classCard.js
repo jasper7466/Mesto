@@ -1,8 +1,8 @@
 'use strict';
 
-class Card
+export class Card
 {
-    entity = undefined;         // Ссылка на родительский узел структуры диалога
+    /*entity = undefined;         // Ссылка на родительский узел структуры диалога
     img = undefined;            // Ссылка на элемент "Картинка"
     title = undefined;          // Ссылка на элемент "Название"
     likeButton = undefined;     // Ссылка на элемент "Лайк"
@@ -12,10 +12,10 @@ class Card
     likes = undefined;          // Количество лайков
     remover = undefined;        // Ссылка на функцию удаления с сервера
     id = undefined;             // Идентификатор карточки
-    liker = undefined;          // Ссылка на функцию постановки лайка на сервере
+    liker = undefined;          // Ссылка на функцию постановки лайка на сервере*/
 
     // Пользовательское событие, инициируемое при удалении карточки
-    removeEvent = undefined;
+    //removeEvent = undefined;
 
     // Конструктор класса
     constructor(

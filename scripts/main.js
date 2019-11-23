@@ -1,5 +1,23 @@
 'use strict';
 
+import "../pages/index.css";
+
+import {ApiMesto} from './classApiMesto.js';
+import {AnyContentHolder} from './classAnyContentHolder.js';
+import {DataInputPopup, ImagePopup } from './classPopup.js';
+import {addPlaceFieldSet, editProfileFieldSet} from './resources.js';
+import {Card} from './classCard.js';
+
+//import "./classCard.js";
+
+const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';           // Токен
+let me = undefined;                                             // Идентификатор пользователя
+const cohortId = 'cohort4';                                     // Идентификатор потока
+const IP = 'praktikum.tk';                                      // IP сервера
+const protocol = NODE_ENV === 'development' ? 'http': 'https';  // IP сервера
+
+
+
 const cardHolder = document.querySelector('.places-list');                  // Родительский узел-хранитель для создаваемых объектов
 const dialogHolder = document.querySelector('.root');                       // Родительский узел-хранитель создаваемых диалогов
 
@@ -7,16 +25,11 @@ const buttonAddPlace = document.querySelector('.user-info__button');        // �
 const buttonEditProfile = document.querySelector('.user-info__edit');       // Кнопка "Редактировать профиль"
 const avatar = document.querySelector('.user-info__photo');                 // Фото профиля
 
-const token = '63ee3dea-32a2-44d1-86e6-300604d8869b';   // Токен
-let me = undefined;                                     // Идентификатор пользователя
-const cohortId = 'cohort4';                             // Идентификатор потока
-const IP = '95.216.175.5';                              // IP сервера
-
 // Создаём экземпляр класса ApiMesto, в конструктор передаём
 // 1. IP сервера
 // 2. Идентификатор потока
 // 3. Токен
-const api = new ApiMesto(IP, cohortId, token);
+const api = new ApiMesto(protocol, IP, cohortId, token);
 
 // Создаём контейнер, ему в конструктор передаём:
 // 1. Тип хранимых элементов (ссылка на конструктор класса элемента)
@@ -107,27 +120,27 @@ cardsContainer.container.addEventListener('click', event => {
 const userInfo = api.getUserInfo();
 
 // Обрабатываем данные
-userInfo.then((data) => {
-    // Директивно заполняем форму и имитируем её "submit", для этого в класс DataInputPopup добавлен метод directUpdate()
-    editProfileDialog.directUpdate(data.name, data.about);
-    // Фото профиля устанавливаем вручную
-    //console.log(data.avatar);
-    //console.log(avatar.stylebackgroundImage);
-    avatar.style.backgroundImage = `url(${data.avatar})`;
-    me = data._id;
-})
-/* Надо исправить: здесь тоже должна быть обработка ошибок, блок .catch
-который есть в классе Api выводит сообщение ошибки в консоль и возвращает
-снова ошибку которая распространяется дальше. Поэтому в конце цепочки тоже должен быть обработчик catch
-*/
+userInfo
+    .then((data) => {
+        // Директивно заполняем форму и имитируем её "submit", для этого в класс DataInputPopup добавлен метод directUpdate()
+        editProfileDialog.directUpdate(data.name, data.about);
+        // Фото профиля устанавливаем вручную
+        //console.log(data.avatar);
+        //console.log(avatar.stylebackgroundImage);
+        avatar.style.backgroundImage = `url(${data.avatar})`;
+        me = data._id;
+    })
+    .catch((err) => {
+        console.log('Error!');
+    })
 
 // Загрузка карточек с сервера
 // Инициируем запрос карточек, получаем промис
 const cards = api.getItems();
-/* Надо исправить: здесь тоже должна быть обработка ошибок, блок .catch
-который есть в классе Api выводит сообщение ошибки в консоль и возвращает
-снова ошибку которая распространяется дальше. Поэтому в конце цепочки тоже должен быть обработчик catch
-*/
+
+cards.catch((err) => {
+    console.log('Card download error.');
+})
 
 cards.then((cardSet) => {
     // Добавляем карточки
