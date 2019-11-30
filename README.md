@@ -105,11 +105,15 @@
 
 `npm install image-webpack-loader --save-dev` - *загрузчик изображений*
 
-#### Работа со стилями в зависимости от сборки
+### Работа со стилями в зависимости от сборки
 
 `npm i style-loader --save-dev` - *нужен для подтягивания в финальную сборку стилей, добавленных через @import*
 
+`npm install --save-dev @babel/plugin-proposal-class-properties` - *преобразует свойства классов*
+
+### Не обязательны для данного проекта
+
 `npm i optimize-css-assets-webpack-plugin --save-dev` - *нужен для дополнительной оптимизации CSS*
 
-`npm install --save-dev @babel/plugin-proposal-class-properties` - *преобразует свойства классов*
+`npm i path --save-dev` - *предоставляет утилиты для работы с путями к файлам и директориям*
 
